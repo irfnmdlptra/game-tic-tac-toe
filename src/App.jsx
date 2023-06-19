@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 
 function Square({ value, onSquareClick }) {
+  const backgroundColor =
+    winner === "x" ? "bg-danger" : "o" ? "bg-primary" : "bg-transparent";
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -47,6 +49,7 @@ export default function Board() {
 
   const winner = calculateWinner(squares);
   let status;
+
   if (winner) {
     status = "pemenang :" + winner;
   } else {
