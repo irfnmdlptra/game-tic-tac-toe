@@ -3,11 +3,22 @@
   margin: 0 auto;
   text-align: center;
 }
-
+/* 
 .square {
   padding: 30px;
-  line-height: 0ch;
-  margin: 0;
+} */
+button {
+  width: 5em;
+  height: 5em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 5em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 .status {
   color: rgb(1, 1, 1);
