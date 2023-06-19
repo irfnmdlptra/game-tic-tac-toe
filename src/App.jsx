@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, class }) {
   
   return (
-    <button className="square"  onClick={onSquareClick}>
+    <button className={class}  onClick={onSquareClick}>
       {value}
     </button>
   );
@@ -41,12 +41,15 @@ export default function Board() {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
-    const nextSquares = squares.slice();
+
+    const nextSquares = [...squares];
+
     if (xIsNext) {
       nextSquares[i] = "x";
     } else {
       nextSquares[i] = "o";
     }
+
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
   }
@@ -55,11 +58,12 @@ export default function Board() {
   let status;
 
   if (winner) {
-    status = "pemenang :" + winner;
+    status = "Pemenang: " + winner;
+  } else if (!squares.includes(null)) {
+    status = "Permainan Seri";
   } else {
-    status = "pemain selanjutnya :" + (xIsNext ? "x" : "o");
+    status = "Pemain selanjutnya: " + (xIsNext ? "x" : "o");
   }
-
   return (
     <div id="root">
       <div className="status">{status}</div>
